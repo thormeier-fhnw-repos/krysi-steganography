@@ -32,6 +32,14 @@ public class ConsoleUI extends Writer
     }
 
     /**
+     * Tells the user he needs to enter an image to unveil
+     */
+    public void sayUnveilFile()
+    {
+        print("You need to select an image to extract the hidden one");
+    }
+
+    /**
      * Choose the image the other one will be hidden in
      */
     public void sayTargetFile()
@@ -67,5 +75,18 @@ public class ConsoleUI extends Writer
         }
 
         return choices[in];
+    }
+
+    /**
+     * Asks for an input
+     * @param kind What is asked
+     * @return The users answer
+     */
+    public String ask(String kind)
+    {
+        print("Please enter " + kind + ":");
+        String answer = scanner.next();
+
+        return answer;
     }
 }

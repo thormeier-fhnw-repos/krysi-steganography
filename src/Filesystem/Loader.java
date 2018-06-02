@@ -1,5 +1,7 @@
 package Filesystem;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,5 +49,23 @@ public class Loader
         }
 
         return files.toArray(new String[0]);
+    }
+
+    /**
+     * Loads an image from a given file
+     * @param fileName Image file name to load
+     * @return The loaded image
+     */
+    public BufferedImage loadImage(String fileName)
+    {
+        BufferedImage loadedImage = null;
+
+        try {
+             loadedImage = ImageIO.read(new File(path + "/" + fileName));
+        } catch (Exception e) {
+            System.out.println("Error: Image not found");
+        }
+
+        return loadedImage;
     }
 }
