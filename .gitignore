@@ -1,3 +1,7 @@
 .idea
 /out
+/resources/in/*
+!/resources/in/.gitkeep
+/resources/out/*
+!/resources/out/.gitkeep
 steganography.iml
