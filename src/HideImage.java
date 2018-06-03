@@ -9,13 +9,23 @@ import ImageHider.ImageHider;
 public class HideImage
 {
     /**
+     * Input path
+     */
+    private static String inPath = "resources/in";
+
+    /**
+     * Output path
+     */
+    private static String outPath = "resources/out";
+
+    /**
      * Main methods
      * @param args Console args
      */
     public static void main(String args[])
     {
-        Loader loader = new Loader("resources/in");
-        Writer writer = new Writer("resources/out");
+        Loader loader = new Loader(inPath);
+        Writer writer = new Writer(outPath);
         ImageHider imageHider = new ImageHider();
         ConsoleUI ui = new ConsoleUI();
 

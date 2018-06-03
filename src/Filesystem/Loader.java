@@ -41,7 +41,7 @@ public class Loader
         List<String> files = new ArrayList<>();
 
         for (File file : listOfFiles) {
-            if (file.getName().equals(".gitkeep")) { // Skip .gitkeep
+            if (file.getName().equals(".gitkeep") || file.isDirectory()) { // Skip .gitkeep
                 continue;
             }
 
