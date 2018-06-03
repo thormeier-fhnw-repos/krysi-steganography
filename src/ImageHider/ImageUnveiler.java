@@ -6,6 +6,11 @@ import java.awt.image.BufferedImage;
 public class ImageUnveiler
 {
     /**
+     * Number of bits, sum needs to be 8
+     */
+    int noDataBits = 4;
+
+    /**
      * Unveils a hidden image
      * @param in The image to unveil an image from
      * @return The unveiled image
@@ -49,7 +54,7 @@ public class ImageUnveiler
     private int extractColorChannel(int in)
     {
         String bitString = leftPadBinaryToLength(Integer.toBinaryString(in), 8);
-        String leastSignificantBits = getLeastSignificantBits(bitString, 4);
+        String leastSignificantBits = getLeastSignificantBits(bitString, noDataBits);
         String paddedBitString = rightPadBinaryToLength(leastSignificantBits, 8);
 
         return Integer.parseInt(paddedBitString, 2);

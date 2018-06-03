@@ -1,7 +1,7 @@
 import ConsoleUI.ConsoleUI;
 import Filesystem.Loader;
 import Filesystem.Writer;
-import ImageHider.ImageHider;
+import ImageHider.ImageUnveiler;
 
 /**
  * Main class for steganography presentation demo: Showing
@@ -16,7 +16,7 @@ public class UnveilImage
     {
         Loader loader = new Loader("resources/in");
         Writer writer = new Writer("resources/out");
-        ImageHider imageHider = new ImageHider();
+        ImageUnveiler imageUnveiler = new ImageUnveiler();
         ConsoleUI ui = new ConsoleUI();
 
         String[] files = loader.getFiles();
@@ -32,8 +32,8 @@ public class UnveilImage
 
         // Hide image and save it
         writer.writeFile(
-                imageHider.unveilImage(loader.loadImage(inputFile)),
-                outputFileName + ".png"
+            imageUnveiler.unveilImage(loader.loadImage(inputFile)),
+            outputFileName + ".png"
         );
     }
 }

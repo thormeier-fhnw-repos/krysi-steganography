@@ -9,6 +9,12 @@ import java.awt.image.BufferedImage;
 public class ImageHider
 {
     /**
+     * Number of bits, sum needs to be 8
+     */
+    int noDataBits = 4;
+    int noInBits = 4;
+
+    /**
      * Hides an image within another image
      * @param data Image that is to be hidden in another one
      * @param in   Image to hide the other one in
@@ -58,8 +64,8 @@ public class ImageHider
         String dataBitString = leftPadBinaryToLength(Integer.toBinaryString(data), 8);
         String inBitString = leftPadBinaryToLength(Integer.toBinaryString(in), 8);
 
-        String dataBitStringSignificant = getMostSignificantBits(dataBitString, 4);
-        String inBitStringSignificant = getMostSignificantBits(inBitString, 4);
+        String dataBitStringSignificant = getMostSignificantBits(dataBitString, noDataBits);
+        String inBitStringSignificant = getMostSignificantBits(inBitString, noInBits);
 
         return Integer.parseInt(inBitStringSignificant + dataBitStringSignificant, 2);
     }
