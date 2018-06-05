@@ -9,14 +9,23 @@ import ImageHider.ImageUnveiler;
 public class UnveilImage
 {
     /**
+     * Input path
+     */
+    private static String inPath = "resources/in";
+
+    /**
+     * Output path
+     */
+    private static String outPath = "resources/out";
+
+    /**
      * Main methods
      * @param args Console args
      */
     public static void main(String args[])
     {
-        Loader loader = new Loader("resources/in");
-        Writer writer = new Writer("resources/out");
-        ImageUnveiler imageUnveiler = new ImageUnveiler();
+        Loader loader = new Loader(inPath);
+        Writer writer = new Writer(outPath);
         ConsoleUI ui = new ConsoleUI();
 
         String[] files = loader.getFiles();
@@ -31,6 +40,8 @@ public class UnveilImage
         String outputFileName = ui.ask("a filename (without file ending)");
 
         // Hide image and save it
+        ImageUnveiler imageUnveiler = new ImageUnveiler();
+
         writer.writeFile(
             imageUnveiler.unveilImage(loader.loadImage(inputFile)),
             outputFileName + ".png"

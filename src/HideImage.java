@@ -26,7 +26,6 @@ public class HideImage
     {
         Loader loader = new Loader(inPath);
         Writer writer = new Writer(outPath);
-        ImageHider imageHider = new ImageHider();
         ConsoleUI ui = new ConsoleUI();
 
         String[] files = loader.getFiles();
@@ -44,6 +43,8 @@ public class HideImage
         String outputFileName = ui.ask("a filename (without file ending)");
 
         // Hide image and save it
+        ImageHider imageHider = new ImageHider();
+
         writer.writeFile(
             imageHider.hideImage(loader.loadImage(inputFile), loader.loadImage(hideInFile)),
             outputFileName + ".png"
